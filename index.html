@@ -34,7 +34,7 @@
 </head>
 
 <body id="top">
-
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   <!-- ****************************** Preloader ************************** -->
   <div id="preloader"></div>
 
@@ -113,19 +113,19 @@
     <div class="offcanvas-body">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link one" data-bs-dismiss="offcanvas" href="#about">About</a>
+          <a class="nav-link one" id="closeBtn" href="#about">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link one" href="#service">Experience</a>
+          <a class="nav-link one" id="closeBtn" href="#service">Experience</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link one" href="#portfolio">Portfolio</a>
+          <a class="nav-link one" id="closeBtn" href="#portfolio">Portfolio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link one" href="#blog">Education</a>
+          <a class="nav-link one" id="closeBtn" href="#blog">Education</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link one" href="#contact">Contact</a>
+          <a class="nav-link one" id="closeBtn" href="#contact">Contact</a>
         </li>
       </ul>
     </div>
@@ -759,6 +759,18 @@
       document.getElementById(cityName).style.display = "block";
       evt.currentTarget.firstElementChild.className += " w3-border-red";
     }
+  </script>
+  <script>
+     document.addEventListener('DOMContentLoaded', function() {
+      var closeButtons = document.querySelectorAll('#closeBtn');
+      closeButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          var offcanvas = document.querySelector('#menu-canvas');
+          var bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvas); // Get the instance of the offcanvas
+          bsOffcanvas.hide(); // Use Bootstrap's hide method to close the offcanvas
+        });
+      });
+    });
   </script>
 
 </body>
